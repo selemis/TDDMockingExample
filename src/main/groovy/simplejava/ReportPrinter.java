@@ -22,5 +22,4 @@ public class ReportPrinter {
             throw new RuntimeException("You are not allowed to use the print print report");
     }
 
-
 }
