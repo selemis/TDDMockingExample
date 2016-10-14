@@ -5,8 +5,8 @@ public class ReportPrinter {
     private LoginService loginService;
     private String token;
 
-    public ReportPrinter() {
-        loginService = new RealLoginService();
+    public ReportPrinter(LoginService loginService) {
+        this.loginService = loginService;
     }
 
     public void start(String userId, String password) {
