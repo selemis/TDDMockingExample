@@ -20,4 +20,18 @@ class ReportPrinterSpec extends Specification {
         printer.printReport() == 'This is a huge report'
     }
 
+    def 'bad login'() {
+        given: 'the login service will fail'
+        LoginService failedLoginServiceStub = Stub(LoginService)
+        failedLoginServiceStub.login(_, _) >> { null }
+
+        when: 'the report printer is started'
+        ReportPrinter printer = new ReportPrinter(failedLoginServiceStub)
+        printer.start('userId', 'password')
+
+        then: 'an exception occurs'
+        def e = thrown(RuntimeException)
+        e.message == "You are not logged in"
+    }
+
 }
