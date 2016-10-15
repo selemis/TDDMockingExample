@@ -42,4 +42,13 @@ public class ReportPrinterTest {
         assertEquals("success-token", loginServiceSpy.token);
     }
 
+    @Test
+    public void user_can_print_the_report_using_a_mock() {
+        LoginServiceMock loginServiceMock = new LoginServiceMock();
+        ReportPrinter printer = new ReportPrinter(loginServiceMock);
+        printer.start("userId", "password");
+        assertEquals("This is a huge report", printer.printReport());
+        assertTrue(loginServiceMock.verify("userId", "password"));
+    }
+
 }
