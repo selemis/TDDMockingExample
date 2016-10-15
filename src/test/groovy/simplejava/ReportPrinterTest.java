@@ -30,4 +30,16 @@ public class ReportPrinterTest {
         printer.printReport();
     }
 
+    @Test
+    public void user_can_print_the_report_using_a_spy() {
+        LoginServiceSpy loginServiceSpy = new LoginServiceSpy();
+        ReportPrinter printer = new ReportPrinter(loginServiceSpy);
+        printer.start("userId", "password");
+        assertEquals("This is a huge report", printer.printReport());
+        assertEquals("userId", loginServiceSpy.userId);
+        assertEquals("password", loginServiceSpy.password);
+        assertEquals("printReport", loginServiceSpy.action);
+        assertEquals("success-token", loginServiceSpy.token);
+    }
+
 }
