@@ -34,4 +34,22 @@ class ReportPrinterSpec extends Specification {
         e.message == "You are not logged in"
     }
 
+    def 'user logins but has no print report authority'() {
+        given: 'the login service will succeed but the user has no print authority'
+        LoginService loginService = Mock(LoginService)
+        1 * loginService.login(_, _) >> { 'successful token' }
+        1 * loginService.hasAuthentication('successful token', 'printReport') >> { false }
+
+        and: 'the report printer is started'
+        ReportPrinter printer = new ReportPrinter(loginService)
+        printer.start('userId', 'password')
+
+        when: 'printing the report'
+        printer.printReport()
+
+        then: 'a runtime exception is thrown'
+        def e = thrown(RuntimeException)
+        e.message == "You are not allowed to use the print print report"
+    }
+
 }
