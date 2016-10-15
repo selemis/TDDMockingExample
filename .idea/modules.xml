@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MockingExample.iml" filepath="$PROJECT_DIR$/MockingExample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MockingExample.iml" filepath="$PROJECT_DIR$/.idea/modules/MockingExample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MockingExample_main.iml" filepath="$PROJECT_DIR$/.idea/modules/MockingExample_main.iml" group="MockingExample" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MockingExample_test.iml" filepath="$PROJECT_DIR$/.idea/modules/MockingExample_test.iml" group="MockingExample" />
     </modules>
   </component>
 </project>
