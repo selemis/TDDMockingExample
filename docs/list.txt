@@ -1,0 +1,5 @@
+good login with fake
+bad login with fake (FailedLoginException)
+user has logged in but has no authority (NoPrintReportAuthorizationException)
+user can print the report using a spy
+user can print the report using a mock
