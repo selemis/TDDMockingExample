@@ -1,0 +1,3 @@
+good login using stub
+bad login using stub
+user can login but has no print authority (using mock)
